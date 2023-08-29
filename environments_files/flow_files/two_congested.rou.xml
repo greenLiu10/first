@@ -43,4 +43,5 @@
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
     <trip id="vehicle_0" depart="0.00" from="E_1to3" to="E_6to8" via="E_3to6"/>
     <trip id="vehicle_1" depart="0.00" from="E_3to1" to="E_6to7" via="E_1to3 E_3to6"/>
+    <trip id="agent_vehicle" depart="0.00" from="E_2to3"/>
 </routes>
