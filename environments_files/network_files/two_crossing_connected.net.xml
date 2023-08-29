@@ -222,6 +222,13 @@
         <lane id="E_8to6_0" index="0" speed="13.89" length="92.80" shape="500.00,101.60 407.20,101.60"/>
     </edge>
 
+
+    </inductionLoop>
+    <inductionLoop id="loop1" lane="E_1to3_0" pos="90" freq="1" file='./environments_files/loop_data.xml'/>
+
+
+
+
     <tlLogic id="N3" type="static" programID="0" offset="0">
         <phase duration="42" state="GGggrrrGGggrrrr"/>
         <phase duration="3"  state="yyyyrrryyyyrrrr"/>
