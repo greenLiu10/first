@@ -222,13 +222,6 @@
         <lane id="E_8to6_0" index="0" speed="13.89" length="92.80" shape="500.00,101.60 407.20,101.60"/>
     </edge>
 
-
-    </inductionLoop>
-    <inductionLoop id="loop1" lane="E_1to3_0" pos="90" freq="1" file='./environments_files/loop_data.xml'/>
-
-
-
-
     <tlLogic id="N3" type="static" programID="0" offset="0">
         <phase duration="42" state="GGggrrrGGggrrrr"/>
         <phase duration="3"  state="yyyyrrryyyyrrrr"/>
@@ -411,5 +404,4 @@
     <connection from=":N6_14" to="E_6to5" fromLane="0" toLane="0" via=":N6_21_0" dir="l" state="m"/>
     <connection from=":N6_21" to="E_6to5" fromLane="0" toLane="0" dir="l" state="M"/>
     <connection from=":N8_0" to="E_8to6" fromLane="0" toLane="0" dir="t" state="M"/>
-
 </net>
