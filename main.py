@@ -43,7 +43,7 @@ if __name__ == '__main__':
 
     
     step_length = 0.1  
-    segment_length = 200.0  
+    segment_length = 85.0  
     current_time = 0.0
 
     while traci.simulation.getMinExpectedNumber() > 0:
