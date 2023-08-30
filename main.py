@@ -3,8 +3,9 @@ import sys
 import traci
 import xml.etree.ElementTree as ET
 
+
 sys.path.append('models/')
-from models import environment
+# from models import environment
 from models import agent
 
 
@@ -17,6 +18,29 @@ def sumo_configuration():
     else:
         sys.exit("please declare environment variable 'SUMO_HOME'")
 
+
+class StateSpace:
+    def __init__(self):
+        self.vehicles = {}  # 字典，存储车辆信息
+
+    def add_vehicle(self, vehicle_id, vehicle_lane, vehicle_speed):
+        self.vehicles[vehicle_id] = {
+            "lane": vehicle_lane,
+            "speed": vehicle_speed
+        }
+
+    def get_vehicle_info(self, vehicle_id):
+        return self.vehicles.get(vehicle_id, None)
+
+    def update_vehicle_info(self, vehicle_id, new_lane, new_speed):
+        if vehicle_id in self.vehicles:
+            self.vehicles[vehicle_id]["lane"] = new_lane
+            self.vehicles[vehicle_id]["speed"] = new_speed
+        else:
+            print("Vehicle not found in the state space.")
+
+# 创建状态空间对象
+state_space = StateSpace()
 
 if __name__ == '__main__':
     sumo_configuration()
@@ -50,9 +74,10 @@ if __name__ == '__main__':
         for vehicle_id in vehicle_ids:
             vehicle_lane = traci.vehicle.getLaneID(vehicle_id)
             vehicle_speed = traci.vehicle.getSpeed(vehicle_id)
-            print(f"Vehicle ID: {vehicle_id}, Lane: {vehicle_lane}, Speed: {vehicle_speed}")
-            # print(f"Traffic_Light ID: {tlLogic id}, Light_State")
-            
+
+            state_space.add_vehicle(vehicle_id, vehicle_lane, vehicle_speed)
+            print(f"state_space updated at step {step}: {vehicle_id, vehicle_lane,vehicle_speed}")
+        
         step += 1
         
-    traci.close()
+    traci.close()   
