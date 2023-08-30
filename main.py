@@ -33,9 +33,9 @@ if __name__ == '__main__':
         print(f"Vehicle ID: {vehicle_id}")
         print(f"Route ID: {vehicle_route}")
         print(f"Depart Time: {depart_time}")
-
+        
+        
     
-
     sumoBinary = "C:/sumo-1.9.2/bin/sumo-gui"
     sumoCmd = [sumoBinary, "-c", './environments_files/first.sumocfg']
 
@@ -70,20 +70,5 @@ if __name__ == '__main__':
 
     # 关闭 SUMO
     traci.close()
-
-
-    # step = 0
-    # while step < 1000:
-    #     traci.simulationStep()
-        
-    #     vehicle_ids = traci.vehicle.getIDList()
-    #     for vehicle_id in vehicle_ids:
-    #         vehicle_lane = traci.vehicle.getLaneID(vehicle_id)
-    #         vehicle_speed = traci.vehicle.getSpeed(vehicle_id)
-    #         print(f"Vehicle ID: {vehicle_id}, Lane: {vehicle_lane}, Speed: {vehicle_speed}")
-
-    #     step += 1
-        
-    # traci.close()
     
     
