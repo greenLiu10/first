@@ -69,20 +69,15 @@ if __name__ == '__main__':
         tl_ids = traci.trafficlight.getIDList()
         for tl_id in tl_ids:
             program_id = traci.trafficlight.getProgram(tl_id)
-
             # 获取交通信号灯当前相位状态
-            current_phase_num = traci.trafficlight.getPhase(tl_id)
+            current_phase = traci.trafficlight.getPhase(tl_id)
             
-            phase_names = {
-                0: "G",
-                1: "g",
-                2: "r",
-                3: "y"
-            }
-            
-            current_phase_name = phase_names.get(current_phase_num, "Unknown")
-            state_space.add_tl(tl_id, current_phase_name)
-            print(f"Traffic_Light updated at step {step}: {tl_id, current_phase_name}")
+            # 注意这里面的current_state指的不是每个车道上的红绿灯信息，而是顺时针方向，只以右侧通行的车道计数， 顺时针方向 每个 link 的通行信息，
+            # 大写的G与小写的g体现了右行优先！！！！
+            current_state = traci.trafficlight.getRedYellowGreenState(tl_id)
+            # state_space.add_tl(tl_id, current_phase, current_state)
+
+            print(f"Traffic_Light updated at step {step}: {tl_id, current_phase, current_state}")
         
    
         step += 1
