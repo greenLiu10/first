@@ -64,7 +64,7 @@ if __name__ == '__main__':
             vehicle_speed = traci.vehicle.getSpeed(vehicle_id)
 
             state_space.add_vehicle(vehicle_id, vehicle_lane, vehicle_speed)
-            print(f"state_space updated at step {step}: {vehicle_id, vehicle_lane, vehicle_speed}")
+            # print(f"state_space updated at step {step}: {vehicle_id, vehicle_lane, vehicle_speed}")
 
         tl_ids = traci.trafficlight.getIDList()
         for tl_id in tl_ids:
@@ -77,8 +77,12 @@ if __name__ == '__main__':
             current_state = traci.trafficlight.getRedYellowGreenState(tl_id)
             # state_space.add_tl(tl_id, current_phase, current_state)
 
-            print(f"Traffic_Light updated at step {step}: {tl_id, current_phase, current_state}")
+            # print(f"Traffic_Light updated at step {step}: {tl_id, current_phase, current_state}")
         
    
         step += 1
+        state_space.print_vehicles()
+        state_space.print_tls()
     traci.close()
+    
+
